@@ -22,8 +22,6 @@ export function Data() {
 
 request();
   return (
-    <>
-      <h1>fetch</h1>
-    </>
+    <h1>hola</h1>
   );
 }
