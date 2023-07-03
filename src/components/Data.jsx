@@ -1,46 +1,29 @@
-import React, { useEffect, useState } from 'react';
-
 export function Data() {
   const url = 'https://b243-2800-e6-4000-49d6-ac0f-d4a0-1291-4529.ngrok-free.app/api/get-articles';
-  const apiKey = 'BQ-csVdQijnxsHHsIscNzqUDomcDoiLjyGMLZkzBPTxATHtehVUfLfisAwlRkhjieNBZxcjlGoqTIeWbA';
-  const dropdownValue = 'movilidad';
+  const apiKey = "BQ-csVdQijnxsHHsIscNzqUDomcDoiLjyGMLZkzBPTxATHtehVUfLfisAwlRkhjieNBZxcjlGoqTIeWbA";
+  const dropdownValue = "movilidad";
+  const requestData = new FormData();
+  requestData.append('dropdown', dropdownValue);
 
-  const [data, setData] = useState(null);
+  const request = async()=>{ 
+    
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': apiKey
+      },
+      body: requestData
+    })
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const requestData = new FormData();
-        requestData.append('dropdown', dropdownValue);
+    const responseData = await response.json();
+    console.log(responseData);
+};
 
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Authorization': apiKey
-          },
-          body: requestData
-        });
-
-        const responseData = await response.json();
-        setData(responseData);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+request();
   return (
-    <div>
-      <h1>Fetch</h1>
-      {data ? (
-        <div>
-          {/* Renderiza los datos obtenidos aquí */}
-        </div>
-      ) : (
-        <p>Cargando datos...</p>
-      )}
-    </div>
+    <>
+      <h1>fetch</h1>
+    </>
   );
 }
