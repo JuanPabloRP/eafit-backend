@@ -1,6 +1,6 @@
 import React from "react";
 
-const card=({tittle,description,imagen,tags,link})=>{
+const Card=({tittle,description,imagen,tags,link})=>{
 
     return(
         <>
@@ -17,3 +17,5 @@ const card=({tittle,description,imagen,tags,link})=>{
         </>
     )
 }
+
+export default Card;
