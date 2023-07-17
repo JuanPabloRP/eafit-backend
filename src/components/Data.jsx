@@ -53,7 +53,7 @@ const Data = () => {
       {console.log(data,"\n-------------------------------------------\n")}
       { data && (
         data.map((dataE) =>{
-          console.log(dataE,"\n-------------------------------------------\n");
+          return <Card tittle={dataE.tittle} description={dataE.summary} imagen={dataE.images} tags={dataE.keywords} link={dataE.link} />;
         })
 
       )}

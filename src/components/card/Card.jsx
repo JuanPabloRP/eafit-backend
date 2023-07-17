@@ -6,7 +6,7 @@ const Card=({tittle,description,imagen,tags,link})=>{
         <>
         <div className="card-container">
             <h3>{tittle}</h3>
-            <img src={imagen} />
+            <img src={imagen} width="250" height="250"/>
             <p>{description}</p>
             <div className="tags">
                 {tags}
