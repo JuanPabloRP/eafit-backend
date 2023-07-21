@@ -5,8 +5,20 @@ import { HiArrowLeft } from 'react-icons/hi2';
 const NoticiaDetalle = () => {
 	const { id } = useParams();
 
-	const { data } = noticias;
-	const news = data.map(({ noticia }) => noticia);
+	const [info, setInfor] = useState([])
+	useEffect(() => {
+		const requestOptions = {
+		  method: 'GET',
+		  redirect: 'follow'
+		};
+	
+		fetch("http://localhost:8080/news/findAll", requestOptions)
+		  .then(response => response.json())
+		  .then(result => setInfor(result))   
+		  .catch(error => console.log('error', error));
+	  }, []);
+	  
+	const news = info.map(({ noticia }) => noticia);
 	const noticia = news.find((noticia) => noticia.id === Number(id));
 
 	const tagsString = noticia.tags.join(', ');

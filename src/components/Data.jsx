@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import {nanoid} from "nanoid"
 import Card from './card/Card'
 const Data = () => {
 
@@ -56,14 +57,29 @@ const Data = () => {
     const url = "http://localhost:8080/news/join"
     console.log(`enviar señal, titulo:${title}, desc:${description},\nimagen: ${imagen}, \n${tags}, \n${link}`)
     
+    const { customAlphabet } = require('nanoid');
 
+    // Define los caracteres válidos para el ID (por ejemplo, dígitos 0-9)
+    const alphabet = '0123456789';
+    
+    // Define la longitud del ID que deseas generar
+    const idLength = 8;
+    
+    // Crea una función de nanoid con el alfabeto y la longitud especificada
+    const generateID = customAlphabet(alphabet, idLength);
+    
+    // Genera un ID único y conviértelo a un número entero
+    const uniqueID = parseInt(generateID(), 10);
+    
+    console.log(uniqueID);
+    
 
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     
     var raw = JSON.stringify({
-      "id": 5,
+      "id": uniqueID,
       "title": title,
       "description": description,
       "tags": tags.join(", "),
