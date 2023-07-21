@@ -1,9 +1,9 @@
 import React from "react";
 
-const Card=({tittle,description,imagen,tags,link,saveSeñal})=>{
+const Card=({tittle,description,imagen,tags,link,onSubmit})=>{
 
     const handleSeñal= ()=>{
-        saveSeñal(tittle,description,imagen,tags,link)
+        onSubmit(tittle,description,imagen,tags,link)
     }
 
     return(

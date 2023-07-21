@@ -18,6 +18,6 @@ public class Noticia implements Serializable {
     String Description;
     String tags;
     String link;
-    String images;
+    String image;
 
 }
