@@ -39,6 +39,14 @@ const NoticiaDetalle = () => {
 				/>
 				<p className="text-center px-2 py-4 opacity-60">Tags: {tagsString}</p>
 				<p className="md:px-6">{noticia.description}</p>
+				<a
+					href={noticia.link}
+					target="_blank"
+					rel="noreferrer"
+					className="hover:text-neutral-400 pt-4"
+				>
+					Ir al sitio web
+				</a>
 			</section>
 		</main>
 	);

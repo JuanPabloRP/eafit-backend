@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 
-const CardItem = ({ noticia: { id, title, tags, image, description } }) => {
+const CardItem = ({
+	noticia: { id, title, tags, image, description, link },
+}) => {
 	console.log({ title });
 
 	const tagsString = tags.join(', ');
@@ -15,12 +17,22 @@ const CardItem = ({ noticia: { id, title, tags, image, description } }) => {
 				<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
 					{tagsString}
 				</p>
-				<Link
-					className="bg-sky-600 p-2 rounded-md hover:bg-sky-800"
-					to={`/noticias/${id}`}
-				>
-					Leer más
-				</Link>
+				<footer className="flex justify-between items-center pt-2">
+					<Link
+						className="bg-sky-600 p-2 rounded-md hover:bg-sky-800"
+						to={`/noticias/${id}`}
+					>
+						Leer más
+					</Link>
+					<a
+						href={link}
+						target="_blank"
+						rel="noreferrer"
+						className="hover:text-neutral-400"
+					>
+						Ir al sitio web
+					</a>
+				</footer>
 			</div>
 		</article>
 	);
