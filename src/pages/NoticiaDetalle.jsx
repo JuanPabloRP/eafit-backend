@@ -23,21 +23,22 @@ const NoticiaDetalle = () => {
 	}
 
 	return (
-		<main className="max-w-4xl m-auto py-6 flex flex-col justify-center items-center">
-			<Link to={'/noticias'} className="my-4">
-				<HiArrowLeft className="w-9 h-9 md:w-12 md:h-12" />
+		<main className="max-w-4xl m-auto py-6 flex flex-col justify-center items-center border border-gray-800 rounded-md my-1 md:my-3 md:px-4">
+			<Link to={'/noticias'} className="my-2  md:self-start">
+				<HiArrowLeft className="w-9 h-9 md:w-10 md:h-10" />
 			</Link>
 
 			<section className="p-3 flex flex-col justify-center items-center">
-				<h2 className="text-center text-3xl pb-2 font-bold">{noticia.title}</h2>
+				<h2 className="text-center text-3xl pb-3 font-bold">{noticia.title}</h2>
 				<img
 					src={noticia.image}
 					alt={noticia.title + ' image'}
 					width={500}
 					height={500}
+					className="rounded-md"
 				/>
-				<p className="text-center p-2 opacity-60">Tags: {tagsString}</p>
-				<p>{noticia.description}</p>
+				<p className="text-center px-2 py-4 opacity-60">Tags: {tagsString}</p>
+				<p className="md:px-6">{noticia.description}</p>
 			</section>
 		</main>
 	);

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { HiBars3, HiXMark } from 'react-icons/hi2';
 
 const Navbar = () => {
 	const [open, setOpen] = useState(false);
@@ -23,11 +24,11 @@ const Navbar = () => {
 				<h2 className="text-4xl">Sura</h2>
 
 				<button onClick={handleOpen} className="text-blue text-2xl md:hidden">
-					{open === false ? <p>abrir</p> : <p>cerrar</p>}
+					{open === false ? <HiBars3 /> : <HiXMark />}
 				</button>
 			</div>
 
-			<div className="flex justify-center items-center space-x-2 py-4 w-full md:w-1/2 md:pr-4">
+			<div className="flex justify-center items-center space-x-2 p-0 w-full md:w-1/2 md:pr-4">
 				{open ? (
 					<ul className="flex flex-col md:flex-row justify-end items-center md:space-x-2 md:w-full text-sky-800 ">
 						{navLinks.map(({ route, title }) => (
@@ -46,7 +47,7 @@ const Navbar = () => {
 						))}
 					</ul>
 				) : (
-					<ul className="hidden md:flex space-x-4 md:w-full md:justify-end">
+					<ul className="hidden space-x-0 p-0 md:flex md:space-x-4 md:w-full md:justify-end">
 						{navLinks.map(({ route, title }) => (
 							<li key={title}>
 								<NavLink

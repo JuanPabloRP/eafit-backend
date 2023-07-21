@@ -8,7 +8,9 @@ const Noticias = () => {
 
 	return (
 		<main>
-			<h2 className="text-3xl font-bold text-center py-4">Ver noticias</h2>
+			<h2 className="text-3xl mb-4 md:text-5xl font-bold text-center py-4">
+				Ver noticias
+			</h2>
 
 			<section className="flex flex-wrap justify-center">
 				{data.map(({ noticia }) => (
