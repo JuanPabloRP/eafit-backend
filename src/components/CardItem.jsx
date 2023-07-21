@@ -5,7 +5,7 @@ const CardItem = ({
 }) => {
 	console.log({ title });
 
-	const tagsString = tags.join(', ');
+
 	return (
 		<article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2 ">
 			<img className="rounded-t-lg" src={image} alt={title + ' image'} />
@@ -15,7 +15,7 @@ const CardItem = ({
 				</h5>
 
 				<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-					{tagsString}
+					{tags}
 				</p>
 				<footer className="flex justify-between items-center pt-2">
 					<Link

@@ -1,21 +1,35 @@
+import { useEffect, useState } from 'react';
 import CardItem from '../components/CardItem';
-import noticias from '../data/noticias.json';
 
 const Noticias = () => {
-	const { data } = noticias;
+	const [info, setInfor] = useState([])
+	useEffect(() => {
+		const requestOptions = {
+		  method: 'GET',
+		  redirect: 'follow'
+		};
+	
+		fetch("http://localhost:8080/news/findAll", requestOptions)
+		  .then(response => response.json())
+		  .then(result => setInfor(result))   
+		  .catch(error => console.log('error', error));
+	  }, []);
 
-	console.log(data);
+
+
 
 	return (
 		<main>
 			<h2 className="text-3xl mb-4 md:text-5xl font-bold text-center py-4">
 				Ver noticias
+				{console.log(info)}
 			</h2>
 
 			<section className="flex flex-wrap justify-center">
-				{data.map(({ noticia }) => (
-					<CardItem key={noticia.id} noticia={noticia} />
-				))}
+				{info ?
+					(info.map((item) => (
+						<CardItem key={item.id} noticia={item} />)
+					)) : console.log("error")}
 			</section>
 		</main>
 	);
