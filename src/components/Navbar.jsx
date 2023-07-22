@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { HiBars3, HiXMark } from 'react-icons/hi2';
 
 const Navbar = () => {
@@ -21,7 +21,9 @@ const Navbar = () => {
 	return (
 		<nav className="sticky top-0 w-full flex flex-wrap justify-between items-center px-4 bg-gray-800 py-4 z-10 text-sky-100 font-semibold">
 			<div className="flex justify-between px-4 w-full md:w-1/2">
-				<h2 className="text-4xl">Sura</h2>
+				<Link to={'/'} className="text-4xl">
+					Sura
+				</Link>
 
 				<button onClick={handleOpen} className="text-blue text-2xl md:hidden">
 					{open === false ? <HiBars3 /> : <HiXMark />}
