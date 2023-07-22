@@ -18,5 +18,6 @@ public class Noticia implements Serializable {
     String tags;
     String link;
     String image;
+    String tipoNoticia;
 
 }
