@@ -19,6 +19,7 @@ const Layout = () => {
 					draggable
 					pauseOnHover
 					theme="dark"
+					toastClassName="bg-gray-800 border border-gray-700 rounded-md p-2"
 				/>
 				<Outlet />
 			</div>
