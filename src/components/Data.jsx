@@ -2,10 +2,10 @@ import { useState } from 'react';
 //import { nanoid } from 'nanoid';
 import { customAlphabet } from 'nanoid';
 import { toast } from 'react-toastify';
-
 import Card from './card/Card';
 import Loading from './Loading';
 import Error from './Error';
+
 const Data = () => {
 	const [data, setData] = useState([]);
 	const [mensaje, setMensaje] = useState([]);
@@ -18,7 +18,7 @@ const Data = () => {
 	const request = async (msje) => {
 		setIsLoading(true);
 		const url =
-			'https://75f5-2800-e6-4001-fe74-2137-7163-dec3-aeec.ngrok-free.app/api/get-articles';
+			'https://0cf3-2800-e6-4001-fe74-f1fd-d4e6-b84c-97e9.ngrok-free.app/api/get-articles';
 		const apiKey =
 			'BQ-csVdQijnxsHHsIscNzqUDomcDoiLjyGMLZkzBPTxATHtehVUfLfisAwlRkhjieNBZxcjlGoqTIeWbA';
 		const dropdownValue = msje;
@@ -61,12 +61,12 @@ const Data = () => {
 					summary: responseData.summary[index],
 					keywords: newTags,
 					link: responseData.link[index],
-					tipoNoticia: mensaje?.value.toUpperCase(),
+					tipoNoticia: msje.toUpperCase(),
 				};
 				newData.push(obj);
 			}
 
-			setData([...data, ...newData]);
+			setData([...newData]);
 			setIsLoading(false);
 		} catch (error) {
 			// Handle the error, e.g., show an error message or set an error state
@@ -78,6 +78,10 @@ const Data = () => {
 
 	const handleMensaje = (e) => {
 		setMensaje({ ...mensaje, value: e.target.value });
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
 	};
 
 	const handleRequest = () => {
@@ -166,6 +170,7 @@ const Data = () => {
 				handleMensaje={handleMensaje}
 				handleRequest={handleRequest}
 				isLoading={isLoading}
+				handleSubmit={handleSubmit}
 			/>
 
 			{isLoading ? (
@@ -187,10 +192,15 @@ const Data = () => {
 	);
 };
 
-const SearchInput = ({ handleMensaje, handleRequest, isLoading }) => {
+const SearchInput = ({
+	handleMensaje,
+	handleRequest,
+	isLoading,
+	handleSubmit,
+}) => {
 	return (
 		<form
-			className="max-w-2xl m-auto mt-4 md:my-8 "
+			className="max-w-2xl m-auto mt-4 md:my-8"
 			onClick={(e) => e.preventDefault()}
 		>
 			<label
@@ -246,6 +256,7 @@ const SearchInput = ({ handleMensaje, handleRequest, isLoading }) => {
 							className="block w-full p-4 pl-10 text-sm  border  rounded-lg bg-gray-800 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 focus-visible:border-none "
 							placeholder="Ingrese el texto..."
 							onChange={handleMensaje}
+							onSubmit={handleSubmit}
 							autoComplete="off"
 							required
 						/>
