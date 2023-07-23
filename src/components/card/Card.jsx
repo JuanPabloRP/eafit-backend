@@ -29,8 +29,8 @@ const Card = ({
 
 	return (
 		<>
-			<article className="max-w-sm  rounded-lg shadow-lg shadow-gray-800 bg-gray-800 border-gray-700 m-2 flex flex-col justify-center items-center p-4 text-center">
-				<span>{tipoNoticia.toUpperCase()}</span>
+			<article className="max-w-xl rounded-lg shadow-lg shadow-gray-800 bg-gray-800 border-gray-700 m-2 flex flex-col justify-center items-center p-4 text-center ">
+				<span>{tipoNoticia?.toUpperCase()}</span>
 				<h2 className="mb-2 text-2xl font-bold tracking-tight text-white ">
 					{tittle}
 				</h2>
@@ -40,9 +40,9 @@ const Card = ({
 					height="250"
 					className="rounded-md my-4"
 				/>
-				<p className="text-start pt-4">{description}</p>
+				<p className="text-start pt-4 px-2">{description}</p>
 				{/* <div className="tags">Tags: {tags}</div> */}
-				<footer className="flex justify-between items-center pt-4 w-full">
+				<footer className="flex justify-between items-center pt-4 w-full md:px-5 md:pt-7">
 					<input
 						type="submit"
 						value="Enviar Señal"
