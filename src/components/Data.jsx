@@ -79,17 +79,30 @@ const Data = () => {
 	};
 
 	const handleRequest = () => {
-		request(mensaje?.value.toUpperCase());
-		toast.success('La alerta ha sido enviada con exito, por favor espere', {
-			position: 'top-right',
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: 'dark',
-		});
+		if (mensaje?.value?.length > 0) {
+			request(mensaje?.value?.toUpperCase());
+			toast.success('La alerta ha sido enviada con exito, por favor espere', {
+				position: 'top-right',
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'dark',
+			});
+		} else {
+			toast.error('Error, ingrese mínimo una palabra para buscar noticias', {
+				position: 'top-right',
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'dark',
+			});
+		}
 	};
 
 	const saveSeñal = (title, description, imagen, tags, link, tipoNoticia) => {
